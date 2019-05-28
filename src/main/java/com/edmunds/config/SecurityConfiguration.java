@@ -12,11 +12,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private static Logger logger = LoggerFactory.getLogger(SecurityConfiguration.class);
 
-
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
-       logger.info("Disable frame options.");
-       http.headers().frameOptions().disable();
+    protected void configure(HttpSecurity http) throws Exception{
+        logger.info("Disable frame options.");
+        http.headers().frameOptions().disable();
+        logger.info("Disable csrf.");
+        http.cors().and().csrf().disable();
     }
 
 }
